@@ -112,7 +112,9 @@ function updateQuestionGrid() {
         if (index === currentQuestionIndex) {
             item.classList.add('active');
             // Scroll to active item in sidebar
-            item.scrollIntoView({ behavior: 'smooth', block: 'nearest' });
+            setTimeout(() => {
+                item.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            }, 100);
         }
         
         // Update state classes
@@ -260,6 +262,22 @@ function nextQuestion() {
     }
 }
 
+// Search and navigate to specific question
+function searchQuestion() {
+    const input = document.getElementById('questionSearch');
+    const questionNum = parseInt(input.value);
+    
+    if (questionNum && questionNum >= 1 && questionNum <= questions.length) {
+        goToQuestion(questionNum - 1); // Convert to 0-based index
+        input.value = ''; // Clear input
+    } else {
+        input.style.borderColor = '#dc3545'; // Show error
+        setTimeout(() => {
+            input.style.borderColor = '#dee2e6';
+        }, 1000);
+    }
+}
+
 // Keyboard navigation
 document.addEventListener('keydown', (e) => {
     if (e.key === 'ArrowLeft') {
@@ -288,3 +306,29 @@ document.addEventListener('keydown', (e) => {
 
 // Load questions on page load
 loadQuestions();
+
+// Add real-time search for search box
+document.addEventListener('DOMContentLoaded', () => {
+    const searchInput = document.getElementById('questionSearch');
+    if (searchInput) {
+        // Auto-navigate as user types
+        searchInput.addEventListener('input', (e) => {
+            const questionNum = parseInt(e.target.value);
+            if (questionNum && questionNum >= 1 && questionNum <= questions.length) {
+                goToQuestion(questionNum - 1); // Convert to 0-based index
+                e.target.style.borderColor = '#28a745'; // Green border for valid
+            } else if (e.target.value) {
+                e.target.style.borderColor = '#dc3545'; // Red border for invalid
+            } else {
+                e.target.style.borderColor = '#dee2e6'; // Default border when empty
+            }
+        });
+        
+        // Also support Enter key
+        searchInput.addEventListener('keypress', (e) => {
+            if (e.key === 'Enter') {
+                searchQuestion();
+            }
+        });
+    }
+});
