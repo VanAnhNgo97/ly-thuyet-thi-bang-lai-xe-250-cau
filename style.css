@@ -10,16 +10,17 @@ body {
     min-height: 100vh;
     padding: 0;
     overflow: hidden;
+    font-size: 20px;
 }
 
 .main-wrapper {
     max-width: 100%;
     margin: 0;
     display: flex;
-    gap: 10px;
+    gap: 15px;
     align-items: flex-start;
     height: 100vh;
-    padding: 10px;
+    padding: 15px;
 }
 
 .container {
@@ -42,17 +43,17 @@ body {
 }
 
 .header h1 {
-    font-size: 22px;
-    margin-bottom: 2px;
+    font-size: 42px;
+    margin-bottom: 8px;
 }
 
 .header p {
-    font-size: 14px;
+    font-size: 28px;
     opacity: 0.9;
 }
 
 .question-container {
-    padding: 12px 20px;
+    padding: 20px 30px;
     flex: 1;
     overflow-y: auto;
     display: flex;
@@ -63,28 +64,28 @@ body {
     display: inline-block;
     background: #667eea;
     color: white;
-    padding: 5px 12px;
-    border-radius: 12px;
-    font-size: 13px;
+    padding: 12px 24px;
+    border-radius: 16px;
+    font-size: 28px;
     font-weight: bold;
-    margin-bottom: 8px;
+    margin-bottom: 15px;
 }
 
 .priority-badge {
     display: inline-block;
     background: #dc3545;
     color: white;
-    padding: 3px 8px;
-    border-radius: 10px;
-    font-size: 11px;
-    margin-left: 5px;
+    padding: 8px 16px;
+    border-radius: 14px;
+    font-size: 24px;
+    margin-left: 10px;
 }
 
 .question-text {
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 32px;
+    line-height: 1.6;
     color: #212529;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     font-weight: 500;
 }
 
@@ -108,14 +109,14 @@ body {
 }
 
 .answer {
-    padding: 10px 12px;
-    border: 2px solid #dee2e6;
-    border-radius: 8px;
+    padding: 20px 24px;
+    border: 3px solid #dee2e6;
+    border-radius: 12px;
     cursor: pointer;
     transition: all 0.3s ease;
     background: white;
-    font-size: 16px;
-    line-height: 1.5;
+    font-size: 28px;
+    line-height: 1.6;
 }
 
 .answer:hover {
@@ -158,17 +159,17 @@ body {
     justify-content: space-between;
     align-items: center;
     gap: 10px;
-    padding: 12px 20px;
+    padding: 16px 30px;
     background: #f8f9fa;
     border-top: 1px solid #dee2e6;
     flex-shrink: 0;
 }
 
 .btn {
-    padding: 10px 20px;
+    padding: 14px 28px;
     border: none;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 12px;
+    font-size: 22px;
     font-weight: 500;
     cursor: pointer;
     transition: all 0.2s ease;
@@ -213,28 +214,29 @@ body {
 }
 
 .correct-answer-display {
-    margin-top: 20px;
-    padding: 15px;
+    margin-top: 25px;
+    padding: 20px;
     background: #d4edda;
-    border: 2px solid #28a745;
-    border-radius: 12px;
+    border: 3px solid #28a745;
+    border-radius: 16px;
     color: #155724;
     font-weight: 500;
+    font-size: 28px;
 }
 
 .loading {
     text-align: center;
     padding: 50px;
-    font-size: 18px;
+    font-size: 32px;
     color: #6c757d;
 }
 
 .sidebar {
-    width: 320px;
+    width: 480px;
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    padding: 20px;
+    padding: 25px;
     max-height: calc(100vh - 20px);
     overflow: hidden;
     position: sticky;
@@ -244,28 +246,28 @@ body {
 }
 
 .sidebar-header {
-    font-size: 18px;
+    font-size: 32px;
     font-weight: bold;
     color: #495057;
-    margin-bottom: 15px;
-    padding-bottom: 10px;
+    margin-bottom: 20px;
+    padding-bottom: 15px;
     border-bottom: 2px solid #e9ecef;
     flex-shrink: 0;
 }
 
 .search-box {
     display: flex;
-    gap: 8px;
-    margin-bottom: 15px;
+    gap: 12px;
+    margin-bottom: 20px;
     flex-shrink: 0;
 }
 
 .search-box input {
     flex: 1;
-    padding: 8px 12px;
+    padding: 14px 20px;
     border: 2px solid #dee2e6;
-    border-radius: 8px;
-    font-size: 14px;
+    border-radius: 10px;
+    font-size: 26px;
     outline: none;
     transition: border-color 0.2s;
 }
@@ -275,13 +277,13 @@ body {
 }
 
 .search-btn {
-    padding: 8px 16px;
+    padding: 14px 28px;
     background: #667eea;
     color: white;
     border: none;
-    border-radius: 8px;
+    border-radius: 10px;
     cursor: pointer;
-    font-size: 16px;
+    font-size: 28px;
     transition: background 0.2s;
 }
 
@@ -292,10 +294,10 @@ body {
 .question-grid {
     display: grid;
     grid-template-columns: repeat(5, 1fr);
-    gap: 8px;
+    gap: 12px;
     overflow-y: auto;
     flex: 1;
-    padding-right: 5px;
+    padding-right: 8px;
 }
 
 .question-item {
@@ -303,11 +305,11 @@ body {
     display: flex;
     align-items: center;
     justify-content: center;
-    border: 2px solid #dee2e6;
-    border-radius: 8px;
+    border: 3px solid #dee2e6;
+    border-radius: 10px;
     cursor: pointer;
     font-weight: bold;
-    font-size: 14px;
+    font-size: 26px;
     transition: all 0.2s ease;
     background: white;
     position: relative;
@@ -488,7 +490,69 @@ body {
     }
 }
 
+/* Large Screen (TV) Optimization */
+@media (min-width: 1920px) {
+    body {
+        font-size: 24px;
+    }
+
+    .header h1 {
+        font-size: 52px;
+    }
+
+    .header p {
+        font-size: 34px;
+    }
+
+    .question-number {
+        font-size: 34px;
+        padding: 16px 32px;
+    }
+
+    .question-text {
+        font-size: 40px;
+        line-height: 1.7;
+    }
+
+    .answer {
+        font-size: 36px;
+        padding: 26px 32px;
+    }
+
+    .btn {
+        font-size: 26px;
+        padding: 18px 36px;
+    }
+
+    .sidebar {
+        width: 580px;
+        padding: 30px;
+    }
+
+    .sidebar-header {
+        font-size: 38px;
+    }
+
+    .search-box input,
+    .search-btn {
+        font-size: 32px;
+    }
+
+    .question-item {
+        font-size: 32px;
+    }
+
+    .question-grid {
+        gap: 14px;
+    }
+}
+
+/* Tablet and smaller screens */
 @media (max-width: 768px) {
+    body {
+        font-size: 16px;
+    }
+
     .main-wrapper {
         flex-direction: column;
     }
@@ -505,11 +569,30 @@ body {
     }
 
     .header h1 {
-        font-size: 24px;
+        font-size: 28px;
+    }
+
+    .header p {
+        font-size: 18px;
+    }
+
+    .question-number {
+        font-size: 20px;
+        padding: 8px 16px;
     }
 
     .question-text {
+        font-size: 22px;
+    }
+
+    .answer {
+        font-size: 20px;
+        padding: 14px 18px;
+    }
+
+    .btn {
         font-size: 18px;
+        padding: 14px 28px;
     }
 
     .controls {
