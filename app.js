@@ -4,9 +4,55 @@ let showingAnswer = false;
 let selectedAnswer = null;
 let questionStates = {}; // Track answered questions: { questionIndex: 'correct'|'incorrect'|'unanswered' }
 
+// Load saved results from localStorage
+function loadSavedResults() {
+    const saved = localStorage.getItem('driverLicenseResults');
+    if (saved) {
+        try {
+            questionStates = JSON.parse(saved);
+        } catch (e) {
+            console.error('Error loading saved results:', e);
+            questionStates = {};
+        }
+    }
+}
+
+// Save results to localStorage
+function saveResults() {
+    try {
+        localStorage.setItem('driverLicenseResults', JSON.stringify(questionStates));
+    } catch (e) {
+        console.error('Error saving results:', e);
+    }
+}
+
+// Clear all saved results
+function clearResults() {
+    questionStates = {};
+    localStorage.removeItem('driverLicenseResults');
+    updateQuestionGrid();
+}
+
+// Show confirmation modal
+function showConfirmModal() {
+    document.getElementById('confirmModal').classList.add('show');
+}
+
+// Close confirmation modal
+function closeConfirmModal() {
+    document.getElementById('confirmModal').classList.remove('show');
+}
+
+// Confirm and clear results
+function confirmClearResults() {
+    clearResults();
+    closeConfirmModal();
+}
+
 // Load and parse CSV file
 async function loadQuestions() {
     try {
+        loadSavedResults(); // Load saved results first
         const response = await fetch('Questions.csv');
         const text = await response.text();
         questions = parseCSV(text);
@@ -48,7 +94,7 @@ function parseCSV(text) {
         }
         fields.push(currentField);
         
-        if (fields.length >= 8) {
+        if (fields.length >= 9) {
             // Helper function to remove leading number from answer text
             const cleanAnswer = (text) => {
                 return text.replace(/^\d+\.\s*/, '').trim();
@@ -62,8 +108,9 @@ function parseCSV(text) {
                 answerC: cleanAnswer(fields[4]),
                 answerD: cleanAnswer(fields[5]),
                 correctAnswer: parseInt(fields[6]),
-                isPriority: fields[7] && fields[7].trim() === 'TRUE',
-                image: fields[8] ? fields[8].trim() : ''
+                isPriority: fields[7] && fields[7].trim() === 'True',
+                chapter: fields[8] ? fields[8].trim() : '1',
+                image: fields[9] ? fields[9].trim() : ''
             });
         }
     }
@@ -228,6 +275,7 @@ function showAnswer() {
         questionStates[currentQuestionIndex] = 'unanswered';
     }
     
+    saveResults(); // Save to localStorage
     updateQuestionGrid();
     
     showingAnswer = true;

@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Quản lý câu hỏi</title>
+    <link rel="stylesheet" href="admin-style.css">
+</head>
+<body>
+    <div class="admin-container">
+        <div class="admin-header">
+            <h1>🔐 Quản lý câu hỏi thi</h1>
+            <p>Thêm câu hỏi mới vào hệ thống</p>
+        </div>
+
+        <div class="admin-content">
+            <div class="form-section">
+                <h2>📝 Thêm câu hỏi mới</h2>
+                
+                <form id="questionForm">
+                    <div class="form-group">
+                        <label for="questionId">ID câu hỏi:</label>
+                        <input type="number" id="questionId" readonly required placeholder="Tự động tăng...">
+                        <small>ID tự động tăng dựa trên Questions.csv</small>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="questionText">Câu hỏi:</label>
+                        <textarea id="questionText" required placeholder="Nhập nội dung câu hỏi..." rows="4"></textarea>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="option1">Đáp án 1 (A):</label>
+                        <input type="text" id="option1" required placeholder="Nhập đáp án 1">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="option2">Đáp án 2 (B):</label>
+                        <input type="text" id="option2" required placeholder="Nhập đáp án 2">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="option3">Đáp án 3 (C):</label>
+                        <input type="text" id="option3" placeholder="Nhập đáp án 3 (tùy chọn)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="option4">Đáp án 4 (D):</label>
+                        <input type="text" id="option4" placeholder="Nhập đáp án 4 (tùy chọn)">
+                    </div>
+
+                    <div class="form-group">
+                        <label for="correctAnswer">Đáp án đúng:</label>
+                        <select id="correctAnswer" required>
+                            <option value="">-- Chọn đáp án đúng --</option>
+                            <option value="1">Đáp án 1 (A)</option>
+                            <option value="2">Đáp án 2 (B)</option>
+                            <option value="3">Đáp án 3 (C)</option>
+                            <option value="4">Đáp án 4 (D)</option>
+                        </select>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="chapter">Chương:</label>
+                        <input type="number" id="chapter" required placeholder="Nhập số chương (VD: 1, 2, 3...)" min="1">
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="isPriority">
+                            <span>⚠️ Câu hỏi điểm liệt</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group checkbox-group">
+                        <label>
+                            <input type="checkbox" id="hasIllustration" onchange="updateImageFilename()">
+                            <span>🖼️ Câu hỏi có hình minh họa</span>
+                        </label>
+                    </div>
+
+                    <div class="form-group">
+                        <label for="imageName">Tên file ảnh:</label>
+                        <input type="text" id="imageName" readonly placeholder="Không có ảnh">
+                        <small>Tự động: img_{id}.png (nếu đánh dấu có hình minh họa)</small>
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn btn-primary">➕ Thêm câu hỏi</button>
+                        <button type="button" class="btn btn-secondary" onclick="resetForm()">🔄 Làm mới</button>
+                    </div>
+                </form>
+            </div>
+
+            <div class="preview-section">
+                <h2>📋 Danh sách câu hỏi</h2>
+                <div class="question-count">
+                    Tổng số câu: <span id="questionCount">0</span>
+                </div>
+                <div class="preview-actions">
+                    <button class="btn btn-success" onclick="downloadCSV()">⬇️ Tải xuống CSV</button>
+                    <button class="btn btn-info" onclick="copyCSV()">📋 Copy CSV</button>
+                    <button class="btn btn-danger" onclick="clearQuestions()">🗑️ Xóa tất cả</button>
+                </div>
+                <div class="preview-content" id="previewContent">
+                    <p class="empty-message">Chưa có câu hỏi nào. Thêm câu hỏi đầu tiên!</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="admin-script.js"></script>
+</body>
+</html>
