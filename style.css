@@ -17,10 +17,10 @@ body {
     max-width: 100%;
     margin: 0;
     display: flex;
-    gap: 15px;
+    gap: 20px;
     align-items: flex-start;
     height: 100vh;
-    padding: 15px;
+    padding: 20px 20px;
 }
 
 .container {
@@ -37,7 +37,7 @@ body {
 .header {
     background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
     color: white;
-    padding: 10px 20px;
+    padding: 20px 30px;
     text-align: center;
     flex-shrink: 0;
 }
@@ -53,7 +53,7 @@ body {
 }
 
 .question-container {
-    padding: 20px 30px;
+    padding: 30px;
     flex: 1;
     overflow-y: auto;
     display: flex;
@@ -158,8 +158,8 @@ body {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    gap: 10px;
-    padding: 16px 30px;
+    gap: 15px;
+    padding: 20px 30px;
     background: #f8f9fa;
     border-top: 1px solid #dee2e6;
     flex-shrink: 0;
@@ -232,15 +232,14 @@ body {
 }
 
 .sidebar {
-    width: 480px;
+    width: 380px;
+    min-width: 380px;
     background: white;
     border-radius: 20px;
     box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
-    padding: 25px;
-    max-height: calc(100vh - 20px);
+    padding: 20px;
+    max-height: calc(100vh - 40px);
     overflow: hidden;
-    position: sticky;
-    top: 0;
     display: flex;
     flex-direction: column;
 }
@@ -496,12 +495,31 @@ body {
         font-size: 24px;
     }
 
+    .main-wrapper {
+        padding: 30px 30px;
+        gap: 30px;
+    }
+
+    .sidebar {
+        width: 450px;
+        min-width: 450px;
+        padding: 30px;
+    }
+
+    .header {
+        padding: 25px 40px;
+    }
+
     .header h1 {
         font-size: 52px;
     }
 
     .header p {
         font-size: 34px;
+    }
+
+    .question-container {
+        padding: 25px 40px;
     }
 
     .question-number {
@@ -519,9 +537,14 @@ body {
         padding: 26px 32px;
     }
 
+    .controls {
+        padding: 20px 40px;
+        gap: 15px;
+    }
+
     .btn {
-        font-size: 26px;
-        padding: 18px 36px;
+        font-size: 28px;
+        padding: 18px 40px;
     }
 
     .sidebar {
@@ -533,9 +556,22 @@ body {
         font-size: 38px;
     }
 
+    .search-box {
+        gap: 15px;
+        margin-bottom: 25px;
+    }
+
+    .search-box input {
+        padding: 16px 24px;
+    }
+
     .search-box input,
     .search-btn {
         font-size: 32px;
+    }
+
+    .search-btn {
+        padding: 16px 32px;
     }
 
     .question-item {
