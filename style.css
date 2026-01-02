@@ -307,7 +307,6 @@ body {
     border: 3px solid #dee2e6;
     border-radius: 10px;
     cursor: pointer;
-    font-weight: bold;
     font-size: 26px;
     transition: all 0.2s ease;
     background: white;
@@ -645,3 +644,4 @@ body {
         width: 100%;
     }
 }
+
